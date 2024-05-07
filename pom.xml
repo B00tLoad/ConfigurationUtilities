@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>space.b00tload.utils</groupId>
+    <artifactId>ConfigurationUtilities</artifactId>
+    <version>1.0.0</version>
+
+    <name>ConfigurationUtilities</name>
+    <description>A library to load config from cli-args, .env, toml-config and default values.</description>
+    <inceptionYear>2024</inceptionYear>
+    <url>https://github.com/B00tLoad/ConfigurationUtilities</url>
+
+    <developers>
+        <developer>
+            <id>B00tLoad_</id>
+            <name>Alix von Schirp</name>
+            <email>alix.von-schirp@bootmedia.de</email>
+            <roles>
+                <role>developer</role>
+            </roles>
+            <timezone>Europe/Berlin</timezone>
+            <properties>
+                <disordHandle>@b00tload_</disordHandle>
+                <mastodonhandle>@b00tload_</mastodonhandle>
+                <mastodoninstance>order-of-gathering.de</mastodoninstance>
+                <blueskyHandle>@b00tload.space</blueskyHandle>
+                <pronouns>she/they</pronouns>
+            </properties>
+        </developer>
+    </developers>
+
+    <issueManagement>
+        <system>GitHub</system>
+        <url>https://github.com/B00tLoad/SnowflakeService/issues</url>
+    </issueManagement>
+
+    <properties>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+
+    <dependencies>
+        <!--        logging-->
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>1.5.5</version>
+        </dependency>
+
+        <!--        config-->
+        <dependency>
+            <groupId>com.electronwill.night-config</groupId>
+            <artifactId>toml</artifactId>
+            <version>3.6.7</version>
+        </dependency>
+    </dependencies>
+
+</project>
