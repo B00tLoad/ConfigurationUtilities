@@ -13,6 +13,13 @@
     <inceptionYear>2024</inceptionYear>
     <url>https://github.com/B00tLoad/ConfigurationUtilities</url>
 
+    <licenses>
+        <license>
+            <name>GNU GPL v3.0</name>
+            <url>https://github.com/B00tLoad/ConfigurationUtilities/blob/master/LICENSE</url>
+        </license>
+    </licenses>
+
     <developers>
         <developer>
             <id>B00tLoad_</id>
@@ -32,9 +39,16 @@
         </developer>
     </developers>
 
+    <scm>
+        <connection>scm:git:git://github.com/B00tLoad/ConfigurationUtilities/.git</connection>
+        <developerConnection>scm:git:ssh://github.com:B00tLoad/ConfigurationUtilities.git</developerConnection>
+        <url>https://github.com/B00tLoad/ConfigurationUtilities/tree/master</url>
+    </scm>
+
+
     <issueManagement>
         <system>GitHub</system>
-        <url>https://github.com/B00tLoad/SnowflakeService/issues</url>
+        <url>https://github.com/B00tLoad/ConfigurationUtilities/issues</url>
     </issueManagement>
 
     <properties>
@@ -47,17 +61,86 @@
     <dependencies>
         <!--        logging-->
         <dependency>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-classic</artifactId>
-            <version>1.5.5</version>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>2.0.13</version>
         </dependency>
 
-        <!--        config-->
+        <!--        config file-->
         <dependency>
             <groupId>com.electronwill.night-config</groupId>
             <artifactId>toml</artifactId>
             <version>3.6.7</version>
         </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.sonatype.central</groupId>
+                <artifactId>central-publishing-maven-plugin</artifactId>
+                <version>0.4.0</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <publishingServerId>central</publishingServerId>
+                    <tokenAuth>true</tokenAuth>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>3.3.1</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>3.6.3</version>
+                <configuration>
+                    <tags>
+                        <tag>
+                            <name>example</name>
+                            <placement>a</placement>
+                            <head>Usage example:</head>
+                        </tag>
+                    </tags>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <version>3.2.4</version>
+                <executions>
+                    <execution>
+                        <id>sign-artifacts</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sign</goal>
+                        </goals>
+                        <configuration>
+                            <keyname>${gpg.keyname}</keyname>
+                            <passphraseServerId>${gpg.keyname}</passphraseServerId>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
 
 </project>

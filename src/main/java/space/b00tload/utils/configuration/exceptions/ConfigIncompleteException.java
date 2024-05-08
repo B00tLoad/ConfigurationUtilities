@@ -15,6 +15,9 @@ import java.util.stream.Collectors;
  */
 public class ConfigIncompleteException extends RuntimeException {
 
+    /**
+     * A {@code java.util.List} of {@code space.b00tload.utils.configuration.ConfigValues} for storing missing values.
+     */
     private final List<ConfigValues> missingValues;
 
     /**
